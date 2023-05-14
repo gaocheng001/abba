@@ -22,7 +22,7 @@ spec:
     repository: abba
   - key: staging
   ingress:
-    domain: 192.168.31.89
+    domain: hello.bbaa
     ignoreLoadBalancer: true
     kind: ingress
     namespaceSubDomain: .jx.
