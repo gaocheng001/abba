@@ -34,9 +34,11 @@ jxRequirements:
     registry: ghcr.io
   environments:
   - key: dev
+    owner: gaocheng001
+    repository: abba
   - key: staging
   ingress:
-    domain: change.me
+    domain: 192.168.31.89.nip.io
     ignoreLoadBalancer: true
     kind: ingress
     namespaceSubDomain: .jx.
@@ -44,6 +46,8 @@ jxRequirements:
       email: ""
       enabled: false
       production: false
+  pipelineUser:
+    username: --token
   repository: bucketrepo
   secretStorage: vault
   vault: {}

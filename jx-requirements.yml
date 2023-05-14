@@ -18,6 +18,8 @@ spec:
     registry: ghcr.io
   environments:
   - key: dev
+    owner: gaocheng001
+    repository: abba
   - key: staging
   ingress:
     domain: 192.168.31.89.nip.io
@@ -28,6 +30,8 @@ spec:
       email: ""
       enabled: false
       production: false
+  pipelineUser:
+    username: --token
   repository: bucketrepo
   secretStorage: vault
   vault: {}

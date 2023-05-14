@@ -1,0 +1,104 @@
+# Source: lighthouse/templates/poller-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lighthouse-poller
+  labels:
+    chart: "lighthouse-1.11.12"
+    app: lighthouse-poller
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'lighthouse'
+    wave.pusher.com/update-on-config-change: 'true'
+  namespace: jx
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: lighthouse-poller
+  template:
+    metadata:
+      annotations:
+        ad.datadoghq.com/poller.logs: '[{"source":"lighthouse","service":"poller"}]'
+        jenkins-x.io/hash: '217e6451fb82368e7b309b4a0fb012924bd2d97336b437d7a44685d5a3094202'
+      labels:
+        app: lighthouse-poller
+    spec:
+      serviceAccountName: lighthouse-poller
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: lighthouse-poller
+        image: ghcr.io/jenkins-x/lighthouse-poller:1.11.12
+        imagePullPolicy: IfNotPresent
+        args:
+        - "--namespace=jx"
+        ports:
+        - name: http
+          containerPort: 8888
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 120
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        env:
+        - name: "GIT_KIND"
+          value: "github"
+        - name: "GIT_SERVER"
+          value: "https://github.com"
+        - name: "GIT_USER"
+          value: --token
+        - name: "GIT_TOKEN"
+          valueFrom:
+            secretKeyRef:
+              name: lighthouse-oauth-token
+              key: oauth
+        - name: "HMAC_TOKEN"
+          valueFrom:
+            secretKeyRef:
+              name: lighthouse-hmac-token
+              key: hmac
+        - name: "JX_LOG_FORMAT"
+          value: "json"
+        - name: LOG_LEVEL
+          value: "info"
+        - name: "LOGRUS_FORMAT"
+          value: "json"
+        - name: LOGRUS_SERVICE
+          value: "lighthouse"
+        - name: LOGRUS_SERVICE_VERSION
+          value: "1.11.12"
+        - name: LOGRUS_STACK_SKIP
+          value: ""
+        - name: POLL_HOOK_ENDPOINT
+          value: "http://hook/hook/poll"
+        - name: POLL_PERIOD
+          value: "20s"
+        envFrom:
+        - secretRef:
+            name: jx-boot-job-env-vars
+            optional: true
+        resources:
+          limits:
+            cpu: 400m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        volumeMounts:
+      volumes:
