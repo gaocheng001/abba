@@ -45,7 +45,7 @@ data:
         repos:
         - gaocheng001/abba
         - gaocheng001/wodenode
-      target_url: http://lighthouse.jx.192.168.31.89/merge/status
+      target_url: http://lighthouse.jx.hello.bbaa/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null

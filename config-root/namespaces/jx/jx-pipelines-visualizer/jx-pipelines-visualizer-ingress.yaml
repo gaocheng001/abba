@@ -19,7 +19,7 @@ metadata:
   namespace: jx
 spec:
   rules:
-  - host: dashboard.jx.192.168.31.89
+  - host: dashboard.jx.hello.bbaa
     http:
       paths:
       - pathType: ImplementationSpecific
