@@ -5,8 +5,8 @@ spec:
     enabled: false
     schedule: ""
   cluster:
-    chartRepository: https://github.com/jenkins-x-bdd/repo.git
     chartKind: pages
+    chartRepository: https://github.com/jenkins-x-bdd/repo.git
     clusterName: kind
     devEnvApprovers:
     - todo
@@ -20,8 +20,7 @@ spec:
   - key: dev
   - key: staging
   ingress:
-    domain: ""
-    externalDNS: false
+    domain: 192.168.31.89.nip.io
     ignoreLoadBalancer: true
     kind: ingress
     namespaceSubDomain: .jx.
@@ -31,4 +30,5 @@ spec:
       production: false
   repository: bucketrepo
   secretStorage: vault
+  vault: {}
   webhook: lighthouse
