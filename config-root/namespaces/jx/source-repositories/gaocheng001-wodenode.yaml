@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: gaocheng001
+    provider: github
+    repository: wodenode
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: gaocheng001-wodenode
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/gaocheng001/wodenode.git
+  org: gaocheng001
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: wodenode
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/gaocheng001/wodenode
