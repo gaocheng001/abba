@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: gaocheng001
+    provider: github
+    repository: boozsoftphp
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: gaocheng001-boozsoftphp
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/gaocheng001/boozsoftphp.git
+  org: gaocheng001
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: boozsoftphp
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/gaocheng001/boozsoftphp

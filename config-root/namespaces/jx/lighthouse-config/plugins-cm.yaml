@@ -12,6 +12,10 @@ data:
       require_self_approval: true
     - lgtm_acts_as_approve: true
       repos:
+      - gaocheng001/boozsoftphp
+      require_self_approval: true
+    - lgtm_acts_as_approve: true
+      repos:
       - gaocheng001/helloa
       require_self_approval: true
     - lgtm_acts_as_approve: true
@@ -34,6 +38,11 @@ data:
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
         name: lighthouse-webui-plugin
       gaocheng001/and:
+      - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
+        name: cd-indicators
+      - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
+        name: lighthouse-webui-plugin
+      gaocheng001/boozsoftphp:
       - endpoint: http://cd-indicators.jx.svc.cluster.local/lighthouse/events
         name: cd-indicators
       - endpoint: http://lighthouse-webui-plugin.jx.svc.cluster.local/lighthouse/events
@@ -69,6 +78,20 @@ data:
       - dog
       - pony
       gaocheng001/and:
+      - approve
+      - assign
+      - help
+      - hold
+      - lgtm
+      - lifecycle
+      - override
+      - size
+      - trigger
+      - wip
+      - cat
+      - dog
+      - pony
+      gaocheng001/boozsoftphp:
       - approve
       - assign
       - help
@@ -124,6 +147,9 @@ data:
       trusted_org: gaocheng001
     - repos:
       - gaocheng001/and
+      trusted_org: gaocheng001
+    - repos:
+      - gaocheng001/boozsoftphp
       trusted_org: gaocheng001
     - repos:
       - gaocheng001/helloa

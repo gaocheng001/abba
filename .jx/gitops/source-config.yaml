@@ -9,6 +9,7 @@ spec:
     providerKind: github
     repositories:
     - name: and
+    - name: boozsoftphp
     - name: helloa
     - name: wodenode
     scheduler: in-repo
