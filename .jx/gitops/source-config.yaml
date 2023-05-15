@@ -8,6 +8,7 @@ spec:
     provider: https://github.com
     providerKind: github
     repositories:
+    - name: and
     - name: wodenode
     scheduler: in-repo
   slack:

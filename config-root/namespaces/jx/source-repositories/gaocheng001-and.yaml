@@ -1,0 +1,22 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: gaocheng001
+    provider: github
+    repository: and
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  name: gaocheng001-and
+  namespace: jx
+spec:
+  httpCloneURL: https://github.com/gaocheng001/and.git
+  org: gaocheng001
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: and
+  scheduler:
+    kind: ""
+    name: in-repo
+  url: https://github.com/gaocheng001/and
