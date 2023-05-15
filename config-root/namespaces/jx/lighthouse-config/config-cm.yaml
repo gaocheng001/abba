@@ -9,6 +9,7 @@ data:
       enabled:
         gaocheng001/abba: true
         gaocheng001/and: true
+        gaocheng001/boozsoftphp: true
         gaocheng001/helloa: true
         gaocheng001/wodenode: true
     plank: {}
@@ -24,6 +25,7 @@ data:
       merge_method:
         gaocheng001/abba: merge
         gaocheng001/and: merge
+        gaocheng001/boozsoftphp: merge
         gaocheng001/helloa: merge
         gaocheng001/wodenode: merge
       queries:
@@ -38,6 +40,7 @@ data:
         repos:
         - gaocheng001/abba
         - gaocheng001/and
+        - gaocheng001/boozsoftphp
         - gaocheng001/helloa
         - gaocheng001/wodenode
       - labels:
@@ -51,6 +54,7 @@ data:
         repos:
         - gaocheng001/abba
         - gaocheng001/and
+        - gaocheng001/boozsoftphp
         - gaocheng001/helloa
         - gaocheng001/wodenode
       target_url: http://lighthouse.jx.192.168.31.89.nip.io/merge/status
